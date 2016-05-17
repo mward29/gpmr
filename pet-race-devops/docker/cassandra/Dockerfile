@@ -2,13 +2,13 @@ FROM alpine:3.3
 
 RUN apk --update add openjdk8
 
-ENV VERSION 3.5
+ENV VERSION 3.4
 
 RUN set -ex \
   && apk add --no-cache --virtual .fetch-deps curl gnupg perl \
   && adduser -S cassandra \
   && mkdir -p /opt \
-	&& curl "http://apache.cs.utah.edu/cassandra/${VERSION}/apache-cassandra-${VERSION}-bin.tar.gz" | tar xz \
+	&& curl "http://archive.apache.org/dist/cassandra/${VERSION}/apache-cassandra-${VERSION}-bin.tar.gz" | tar xz \
   && mv apache-cassandra-${VERSION} /opt/cassandra
 
 ADD kubernetes-cassandra.jar /opt/cassandra/lib/kubernetes-cassandra.jar
