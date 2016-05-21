@@ -11,8 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-FROM alpine:3.4
+FROM alpine:edge
 
 ENV DUMB_INIT_VER=1.0.3 CASS_VERSION=3.5 CASS_DIR=/opt/cassandra JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre LANG=C.UTF-8 PATH=$PATH:$JAVA_HOME/bin
 
