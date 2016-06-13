@@ -15,7 +15,7 @@
 # limitations under the License.
 
 set -e
-CONF_DIR=/etc/cassandra
+CONF_DIR=/opt/cassandra/conf
 CFG=$CONF_DIR/cassandra.yaml
 
 # The following vars relate to there counter parts in $CFG

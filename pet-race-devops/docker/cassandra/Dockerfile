@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ingenieux/alpine-java8-supervisord
+FROM mward29/alpine34-jdk8-glibc
 
 ENV DUMB_INIT_VER=1.0.3 CASS_VERSION=3.5 CASS_DIR=/opt/cassandra
 
@@ -35,11 +35,9 @@ RUN set -ex \
   && mv /logback.xml /cassandra.yaml ${CASS_DIR}/conf/ \
   && mkdir -p ${CASS_DIR}/logs \
   && chown -R cassandra: ${CASS_DIR} /cassandra_data /run.sh /kubernetes-cassandra.jar \
-  && chmod +x /usr/local/bin/dumb-init /run.sh
-#  && apk del .fetch-deps \
-#  && rm -rf /var/cache/apk/*
-
-USER cassandra
+  && chmod +x /usr/local/bin/dumb-init /run.sh \
+  && apk del .fetch-deps \
+  && rm -rf /var/cache/apk/*
 
 # 7000: intra-node communication
 # 7001: TLS intra-node communication
